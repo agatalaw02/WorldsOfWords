@@ -9,8 +9,13 @@ export default function Login() {
     const [password, setPassword] = useState("");
 
 
-    async function handleLogin(){
+    async function handleRegister(){
         navigate("/register");
+
+    }
+
+    async function handleLogin(){
+        navigate("/mainpage");
 
     }
 
@@ -29,8 +34,8 @@ export default function Login() {
                             <text className="text-section">HASŁO </text>
                             <input type="password" placeholder="" />
                         </div>
-                        <button type="submit">ZALOGUJ</button>
-                        <button type="button" onClick={handleLogin}>ZAREJESTRUJ SIĘ</button>
+                        <button type="submit" onClick={handleLogin}>ZALOGUJ</button>
+                        <button type="button" onClick={handleRegister}>ZAREJESTRUJ SIĘ</button>
                     </form>
                 
             </div>

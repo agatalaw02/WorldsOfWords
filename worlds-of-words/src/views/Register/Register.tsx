@@ -31,7 +31,7 @@ export default function Register() {
                             <text className="text-section">HASŁO </text>
                             <input type="password" placeholder="" />
                         </div>
-                        <button type="button">ZAREJESTRUJ</button>
+                        <button type="button" onClick={register}>ZAREJESTRUJ</button>
                     </form>
                 
             </div>
