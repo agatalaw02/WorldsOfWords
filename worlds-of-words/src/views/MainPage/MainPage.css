@@ -7,25 +7,23 @@
 
 .logo2-section img{
 
-position: absolute;
-width: 285px;
-height: 191px;
-left: 0px;
-top: 0px;
-
-filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    position: absolute;
+    width: 285px;
+    height: 285px;
+    left: -10px;
+    top: -30px;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 
 }
 
 .menu-bar{
-    list-style-type: none;
     box-sizing: border-box;
 
     position: absolute;
     width: 800px;
     height: 55px;
     left: 561px;
-    top: 10px;
+    top: 20px;
     padding-top: 10px;
 
 
@@ -68,15 +66,28 @@ filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
     position: absolute;
     width: 30px;
     height: 30px;
-    left: 1810px;
+    /* left: 1810px; */
     top: 37px;
+    right: 50px;
 
 
 }
 
 .search-section{
-    margin-top: 300px;
+    width: '100vh';
+    height: '100vh';
     margin-left: -1000px;
+}
+
+.background-find-book{
+    position: absolute;
+    width: 860px;
+    height: 365px;
+    left: 89px;
+    margin-top: 200px;
+    background-color: #F0F0F0;
+    border-radius: 20px;
+    filter: blur(5px);
 }
 
 .search-book {
@@ -84,7 +95,7 @@ filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
     width: 860px;
     height: 365px;
     left: 89px;
-    top: 200px;
+    margin-top: 200px;
 
     font-family: 'Roboto Slab';
     font-style: normal;
@@ -94,8 +105,6 @@ filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
     text-align: center;
 
     color: #000000;
-    background-color: #F0F0F0;
-    border-radius: 20px;
 }
   
 .search-box {
@@ -104,7 +113,7 @@ filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
     width: 720px;
     height: 46px;
     left: 120px;
-    top: 730px;
+    margin-top: 625px;
     padding-left: 25px;
     padding-right: 40px;
     font-size: 20px;
@@ -128,24 +137,388 @@ filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 
 .search-icon{
 
-position: absolute;
-width: 24px;
-height: 24px;
-left: 875px;
-top: 745px;
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    left: 875px;
+    margin-top: 640px;
 
 
 }
 
 .book-image img{
 
-position: absolute;
-width: 830px;
-height: 830px;
-left: 1029px;
-top: 123px;
+    position: absolute;
+    width: 830px;
+    height: 820px;
+    left: 1070px;
+    margin-top: 40px;
 
-filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 
 }
 
+.the-best-books-background{
+
+    position: absolute;
+    width: 761px;
+    height: 800px;
+    right: 50px;
+    margin-top: 990px;
+
+    background: #F0F0F0;
+    filter: blur(5px);
+    border-radius: 20px;
+
+}
+
+.text-the-best-books{
+
+    position: absolute;
+    width: 500px;
+    height: 391px;
+    right: 170px;
+    margin-top: 1180px;
+
+    font-family: 'Roboto Slab';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 96px;
+    line-height: 127px;
+    text-align: center;
+
+    color: #000000;
+
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+}
+
+.bestbook1background{
+
+    position: absolute;
+    width: 311px;
+    height: 411px;
+    left: 391px;
+    top: 1074px;
+
+    background: #5396A4;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+
+}
+
+.book1-the-best{
+
+    position: absolute;
+    width: 212px;
+    height: 293px;
+    left: 440px;
+    top: 1040px;
+
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    border-radius: 10px;
+
+}
+
+.title1-the-best{
+
+    position: absolute;
+    width: 309px;
+    height: 57px;
+    left: 390px;
+    top: 1334px;
+    
+
+    font-family: 'Roboto Slab';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 32px;
+    text-align: center;
+
+    color: #FFFFFF;
+
+
+
+}
+
+.thebestbutton1{
+
+    position: absolute;
+    width: 241px;
+    height: 57px;
+    left: 426px;
+    top: 1400px;
+
+    background: #052435;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+
+
+    font-family: 'Roboto Slab';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 42px;
+    text-align: center;
+
+    color: #FFFFFF;
+
+
+}
+
+.bestbook2background{
+
+    position: absolute;
+    width: 311px;
+    height: 411px;
+    left: 44px;
+    top: 1336px;
+
+    background: #5396A4;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+
+
+}
+
+.book2-the-best{
+
+    position: absolute;
+    width: 212px;
+    height: 293px;
+    left: 92px;
+    top: 1302px;
+
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    border-radius: 10px;
+
+}
+
+.title2-the-best{
+
+    position: absolute;
+    width: 309px;
+    height: 57px;
+    left: 46px;
+    top: 1595px;
+
+    font-family: 'Roboto Slab';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 32px;
+    text-align: center;
+
+    color: #FFFFFF;
+
+
+}
+
+.thebestbutton2{
+
+    position: absolute;
+    width: 241px;
+    height: 57px;
+    left: 79px;
+    top: 1661px;
+
+    background: #052435;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+
+    font-family: 'Roboto Slab';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 42px;
+    text-align: center;
+
+    color: #FFFFFF;
+
+}
+
+.bestbook3background{
+
+    position: absolute;
+    width: 311px;
+    height: 411px;
+    left: 740px;
+    top: 1470px;
+
+    background: #5396A4;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+
+
+}
+
+.book3-the-best{
+
+    position: absolute;
+    width: 212px;
+    height: 293px;
+    left: 789px;
+    top: 1435px;
+
+
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    border-radius: 10px;
+
+
+}
+
+.title3-the-best{
+
+    position: absolute;
+    width: 311px;
+    height: 53px;
+    left: 740px;
+    top: 1730px;
+
+    font-family: 'Roboto Slab';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 32px;
+    text-align: center;
+
+    color: #FFFFFF;
+
+
+}
+
+.thebestbutton3{
+
+    position: absolute;
+    width: 241px;
+    height: 57px;
+    left: 775px;
+    top: 1795px;
+
+    background: #052435;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+
+    font-family: 'Roboto Slab';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 42px;
+    text-align: center;
+
+    color: #FFFFFF;
+}
+
+.last-adds{
+    position: absolute;
+    width: 1179px;
+    height: 84px;
+    left: 371px;
+    top: 2040px;
+
+    font-family: 'Roboto Slab';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 64px;
+    line-height: 84px;
+    text-align: center;
+
+    color: #000000;
+
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+}
+
+.last-adds-books-section{
+    display: flex;
+    justify-content: space-around;
+    position: absolute;
+    flex-wrap: wrap;
+    width: 1179px;
+    height: '100vh';
+    left: 371px;
+    top: 2130px;
+    padding-inline: 30px;
+
+
+}
+
+.background-book{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 311px;
+    height: 411px;
+    margin-top: 50px;
+    margin-bottom: 30px;
+
+    background: #5396A4;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+}
+
+.book-last{
+    margin-top: -35px;
+    width: 212px;
+    height: 293px;
+    align-self: center;
+
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    border-radius: 10px;
+}
+
+.title-book-last{
+    margin-top: -10px;
+    width: 311px;
+    height: 53px;
+
+    font-family: 'Roboto Slab';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 32px;
+    text-align: center;
+
+    color: #FFFFFF;
+}
+
+.button-book-last{
+    width: 241px;
+    height: 57px;
+    align-self: center;
+    margin-bottom: 25px;
+
+    background: #052435;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+
+    font-family: 'Roboto Slab';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 42px;
+    text-align: center;
+
+    color: #FFFFFF;
+}
+
+.footer1-container{
+
+    position: absolute;
+    width: 1903px;
+    height: 30px;
+    bottom: -2290px;
+    padding-top: 20px;
+
+    background: #F0F0F0;
+
+    font-family: 'Roboto Slab';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 25px;
+    line-height: 15px;
+    text-align: center;
+
+    color: #000000;
+}

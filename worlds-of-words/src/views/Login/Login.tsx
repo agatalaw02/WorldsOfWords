@@ -1,7 +1,7 @@
 import { useState } from "react";
 import './Login.css';
 import { useNavigate } from "react-router-dom";
-
+import logo from '../../assets/Image/logo.png'
 
 export default function Login() {
     const navigate = useNavigate();
@@ -22,7 +22,7 @@ export default function Login() {
     return(
         <div className="login-container">
             <div className="logo-section">
-                <img src="../worlds-of-words/assets/Image/logo2.jpg" />
+                <img src={logo} />
             </div>
             <div className="form-section">
                 

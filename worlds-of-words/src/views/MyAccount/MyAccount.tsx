@@ -1,8 +1,11 @@
 import { useState } from "react";
 import './MyAccount.css';
 import { useNavigate } from "react-router-dom";
-import { AiOutlineBars, AiOutlineUser, AiOutlineHeart, AiOutlineSearch } from "react-icons/ai";
+import { AiOutlineBars, AiOutlineUser, AiOutlineHeart } from "react-icons/ai";
 import { LuLogOut, LuHelpCircle } from "react-icons/lu";
+import logo from '../../assets/Image/logo.png';
+import avatar from '../../assets/Avatar/avatar1.jpg'
+
 
 export default function Login() {
     const navigate = useNavigate();
@@ -28,7 +31,7 @@ export default function Login() {
         <div className="myaccount-container">
         <header>
             <div className="logo2-section">
-                <img src="../worlds-of-words/assets/Image/logo2.jpg" onClick={handleLogo}/>
+                <img src={logo} onClick={handleLogo}/>
             </div>
             <nav>
                 <ul className="menu-bar">
@@ -48,7 +51,7 @@ export default function Login() {
 
             <div className="daneMyaccount">
                 <div className="avatar-myaccount">
-                    <img src="avatar.png" /> {/*Dodac awatar*/}
+                    <img src={avatar} /> 
                 </div>
                 
                 <form>
