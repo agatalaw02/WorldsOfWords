@@ -16,6 +16,10 @@ export default function MainPage() {
         navigate("/myaccount");
     }
 
+    async function handleHelp(){
+        navigate("/help");
+    }
+
     async function login(){
         navigate("/login");
     }
@@ -38,7 +42,7 @@ export default function MainPage() {
                         <li className="menu-section" onClick={login}><LuLogOut className="menu-icon"/> WYLOGUJ SIE</li>
                     </ul>
                 </nav>
-                <LuHelpCircle className="help-icon"/>
+                <LuHelpCircle className="help-icon" onClick={handleHelp}/>
             </header>
             <div className="search-section">
                 <div className="background-find-book"/>

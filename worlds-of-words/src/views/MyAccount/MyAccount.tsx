@@ -23,8 +23,12 @@ export default function Login() {
     }
 
     async function handleLogin(){
-        navigate("/mainpage");
+        navigate("/login");
 
+    }
+
+    async function handleHelp(){
+        navigate("/help");
     }
 
     return(
@@ -38,10 +42,10 @@ export default function Login() {
                     <li className="menu-section"><AiOutlineBars className="menu-icon"/> KATEGORIE</li>
                     <li className="myaccount-section" ><AiOutlineUser className="menu-icon"/> MOJE KONTO</li>
                     <li className="menu-section"><AiOutlineHeart className="menu-icon"/> ULUBIONE</li>
-                    <li className="menu-section"><LuLogOut className="menu-icon"/> WYLOGUJ SIE</li>
+                    <li className="menu-section" onClick={handleLogin}><LuLogOut className="menu-icon"/> WYLOGUJ SIE</li>
                 </ul>
             </nav>
-            <LuHelpCircle className="help-icon"/>
+            <LuHelpCircle className="help-icon" onClick={handleHelp}/>
         </header>
 
         <div className="myaccount-container2">
@@ -61,8 +65,8 @@ export default function Login() {
                         <text className="text-section">E-MAIL </text>
                         <input type="email" placeholder="" readOnly/>
                     </div>
-                        <button type="submit" className="edit-button">EDYTUJ</button>
-                        <button type="button" className="delete-button">USUŃ KONTO</button>
+                        <button className="edit-button">EDYTUJ</button>
+                        <button className="delete-button">USUŃ KONTO</button>
                 </form>
             </div>
 

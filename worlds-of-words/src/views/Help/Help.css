@@ -1,0 +1,199 @@
+.help-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 4%;
+}
+
+.logo2-section img{
+
+    position: absolute;
+    width: 285px;
+    height: 285px;
+    left: -10px;
+    top: -30px;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+
+}
+
+.menu-section {
+    display: inline;
+    padding-top: 10px;
+    margin-right: 60px;
+    margin-left: 5px;
+
+
+    font-family: 'Roboto Slab';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 26px;
+    text-align: center;
+
+    color: #000000;
+
+
+}
+
+.menu-icon{
+    position: relative;
+    padding-right: 10px;
+    width: 20px;
+    height: 20px;
+    top: 5px;
+}
+
+.help-icon-inHelp{
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    /* left: 1810px; */
+    top: 37px;
+    right: 50px;
+
+    color: #5396A4;    
+}
+
+.help-section{
+    width: '100vh';
+    height: '100vh';
+}
+
+.background-help{
+
+    position: absolute;
+    width: 1903px;
+    height: 150px;
+    left: 0px;
+    top: 210px;
+
+    background: #F0F0F0;
+    filter: blur(5px);
+    border-radius: 20px;
+
+}
+
+.text-help{
+
+    position: absolute;
+    width: 800px;
+    height: 80px;
+    left: 560px;
+    top: 240px;
+
+    font-family: 'Roboto Slab';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 64px;
+    line-height: 84px;
+    text-align: center;
+
+    color: #000000;
+
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+}
+
+.help-section2{
+
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+
+    position: absolute;
+    align-items: center;
+
+    width: 1598px;
+    height: 3646px;
+    left: 162px;
+    top: 400px;
+
+    /* background: rgba(217, 217, 217, 0.5); */
+
+
+}
+
+.help-section2 li{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+
+    width: 650px;
+    height: 650px;
+    margin-left: -35px;
+    margin-top: -70px;
+
+    background: #FFFFFF;
+    border: 2px solid #F0F0F0;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+}
+
+.help-section2 h3{
+
+    position: absolute;
+    width: 565px;
+    height: 56px;
+    margin-top: -450px;
+
+
+    font-family: 'Roboto Slab';
+    font-style: normal;
+    font-weight: 550;
+    font-size: 32px;
+    line-height: 42px;
+    text-align: center;
+
+    color: #000000;
+
+
+}
+
+.help-section2 text{
+
+    position: absolute;
+    width: 550px;
+    height: 384px;
+
+    font-family: 'Roboto Slab';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 32px;
+
+    color: #000000;
+
+}
+
+.help-section2 p{
+    flex-wrap: wrap;
+    margin-bottom: -0.5em;
+    text-indent: -1em;
+    margin: 1em;
+    
+
+}
+
+.footer4-container{
+
+    position: absolute;
+    width: 1903px;
+    height: 30px;
+    bottom: -3150px;
+    padding-top: 20px;
+
+    background: #F0F0F0;
+
+    font-family: 'Roboto Slab';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 25px;
+    line-height: 15px;
+    text-align: center;
+
+    color: #000000;
+}
+
+

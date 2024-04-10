@@ -5,6 +5,7 @@ import Register from "./views/Register/Register"; // Import your Register compon
 import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 import MainPage from './views/MainPage/MainPage';
 import MyAccount from './views/MyAccount/MyAccount';
+import Help from './views/Help/Help';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
           <Route path="/register" element={<Register />} /> 
           <Route path="/mainpage" element={<MainPage />} /> 
           <Route path="/myaccount" element={<MyAccount />} /> 
+          <Route path="/help" element={<Help />} /> 
           {/* Add as many routes as you need */}
           <Route path="*" element={<Navigate to="/login" />} />
         </Routes>
