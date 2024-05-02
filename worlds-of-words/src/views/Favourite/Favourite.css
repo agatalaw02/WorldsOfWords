@@ -1,0 +1,235 @@
+.favourite-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 4%;
+}
+
+.logo2-section img{
+
+    position: absolute;
+    width: 285px;
+    height: 285px;
+    left: -10px;
+    top: -30px;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+
+}
+
+.menu-section {
+    display: inline;
+    padding-top: 10px;
+    margin-right: 60px;
+    margin-left: 5px;
+
+
+    font-family: 'Roboto Slab';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 26px;
+    text-align: center;
+
+    color: #000000;
+
+
+}
+
+.menu-icon{
+    position: relative;
+    padding-right: 10px;
+    width: 20px;
+    height: 20px;
+    top: 5px;
+}
+
+.favourite-section{
+    display: inline;
+    padding-top: 10px;
+    margin-right: 60px;
+    margin-left: 5px;
+
+
+    font-family: 'Roboto Slab';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 26px;
+    text-align: center;
+
+    color: #5396A4;
+
+}
+
+.favourite-and-categories-container{
+    position: absolute;
+    width: 1670px;
+    height: 1085px;
+    top: 140px;
+    left: 150px;
+    right: 150px;
+    display: flex;
+
+}
+
+.favourite-categories-container{
+
+    width: 253px;
+    height: 743px;
+    margin-top: 100px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.favourite-categories-section{
+
+    position: absolute;
+    width: 214px;
+    height: 44px;
+
+
+    font-family: 'Roboto Slab';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 42px;
+    text-align: center;
+
+    color: #000000;
+
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+}
+.favourite-categories-container li{
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px;
+}
+
+.favourite-categories-container li button{
+
+    width: 241px;
+    height: 35px;
+    margin-top: 20px;
+
+    background: #4D5F62;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+
+    font-family: 'Roboto Slab';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 21px;
+    text-align: center;
+
+    color: #FFFFFF;
+
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+
+}
+
+.favourite2-container{
+    width: 1179px;
+    height: 1085px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+
+}
+
+
+.favourite-books{
+    width: 1179px;
+    height: 84px;
+    margin-left: -40px;
+
+    font-family: 'Roboto Slab';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 80px;
+    line-height: 84px;
+    text-align: center;
+
+    color: #000000;
+
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+}
+
+.favourite-books-section{
+    display: flex;
+    top: 80px;
+    justify-content: space-around;
+    position: absolute;
+    flex-wrap: wrap;
+    width: 1179px;
+    padding-inline: 30px;
+
+
+}
+
+.background-book-favourite{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 311px;
+    height: 411px;
+    margin-top: 50px;
+    margin-bottom: 30px;
+
+    background: #5396A4;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+}
+
+.book-favourite{
+    margin-top: -35px;
+    width: 212px;
+    height: 293px;
+    align-self: center;
+
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    border-radius: 10px;
+}
+
+.title-book-favourite{
+    margin-top: -10px;
+    width: 311px;
+    height: 53px;
+
+    font-family: 'Roboto Slab';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 32px;
+    text-align: center;
+
+    color: #FFFFFF;
+}
+
+.button-book-favourite{
+    width: 241px;
+    height: 57px;
+    align-self: center;
+    margin-bottom: 25px;
+
+    background: #052435;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+
+    font-family: 'Roboto Slab';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 42px;
+    text-align: center;
+
+    color: #FFFFFF;
+}

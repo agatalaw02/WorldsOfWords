@@ -1,0 +1,542 @@
+.book-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 4%;
+}
+
+.logo2-section img{
+
+    position: absolute;
+    width: 285px;
+    height: 285px;
+    left: -10px;
+    top: -30px;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+
+}
+
+.menu-section {
+    display: inline;
+    padding-top: 10px;
+    margin-right: 60px;
+    margin-left: 5px;
+
+
+    font-family: 'Roboto Slab';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 26px;
+    text-align: center;
+
+    color: #000000;
+
+
+}
+
+.menu-icon{
+    position: relative;
+    padding-right: 10px;
+    width: 20px;
+    height: 20px;
+    top: 5px;
+}
+
+.book2-container{
+
+    position: absolute;
+    width: 1903px;
+    height: 837px;
+    left: 0px;
+    top: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.search-box-book{
+    width: 720px;
+    height: 46px;
+    padding-left: 25px;
+    padding-right: 40px;
+    font-size: 20px;
+    margin-left: 25px;
+
+
+    background: #FFFFFF;
+    border: 2px solid #000000;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+
+
+    font-family: 'Roboto Slab';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 32px;
+
+    color: #000000;
+}
+
+.search-icon-book{
+
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    top: 14px;
+    margin-left: 775px;
+}
+
+.description-book{
+    display: flex;
+    align-items: center;
+    margin-top: 150px;
+}
+
+.description-book img{
+
+    width: 340px;
+    height: 461px;
+    border-radius: 20px;
+
+}
+
+.description-book div{
+
+    width: 886px;
+    height: 461px;
+    display: flex;
+    flex-direction: column;
+    align-items:flex-start;
+    margin-left: 100px;
+
+
+}
+
+.title-book{
+    margin-left: 5px;
+
+    width: 873px;
+    height: 93px;
+
+    font-family: 'Roboto Slab';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 48px;
+    line-height: 63px;
+    text-align: center;
+
+    color: #000000;
+
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+}
+
+.author-book{
+    margin-left: 60px;
+    margin-bottom: 15px;
+
+    font-family: 'Roboto Slab';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 26px;
+
+    color: #000000;
+}
+
+.category-book{
+    margin-left: 60px;
+    margin-bottom: 15px;
+
+    font-family: 'Roboto Slab';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 21px;
+
+    color: #000000;
+
+
+}
+
+.description2-book{
+    margin-left: 60px;
+    width: 760px;
+    height: 200px;
+    margin-bottom: 3px;
+
+    font-family: 'Roboto Slab';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 21px;
+
+    color: #000000;
+
+
+}
+
+.add-to-favourite-button{
+
+    width: 775px;
+    height: 71px;
+    margin-left: 50px;
+
+    background: #052435;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+
+
+    font-family: 'Roboto Slab';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 26px;
+    text-align: center;
+
+    color: #FFFFFF;
+
+
+
+}
+
+.rating-star{
+    display: flex;
+    margin-top: -370px;
+    margin-left: 300px;
+    display: flex;
+    flex-direction: row;
+} 
+
+
+.reactStars-rating{
+    width: 100px;
+    height: 30px;
+    margin-left: 15px;
+    margin-right: 20px;
+    margin-top: -4px;
+}
+.background-description-book{
+
+    width: 1900px;
+    height: 620px;
+    left: 0px;
+    margin-top: 260px;
+
+    background: #F0F0F0;
+    filter: blur(5px);
+
+}
+
+.add-your-opinion{
+    position: absolute;
+    padding-top: 30px;
+
+    width: 1900px;
+    height: 520px;
+    top: 1100px;
+
+
+}
+
+.text-to-add-opinio{
+
+    position: absolute;
+    width: 790px;
+    height: 508px;
+    margin-left: 30px;
+
+    font-family: 'Roboto Slab';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 96px;
+    line-height: 127px;
+
+    color: #000000;
+
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+}
+
+.text-to-add-opinio p{
+    margin-top: -10px;
+}
+
+.user-profile{
+    margin-left: 820px;
+    margin-top: 150px;
+    position: absolute;
+    width: 252px;
+    height: 280px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.user-profile img{
+
+    width: 190px;
+    height: 190px;
+    border-radius: 50%;
+
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+
+}
+
+.user-profile text{
+    margin-top: 20px;
+    width: 190px;
+    height: 39px;
+
+    font-family: 'Roboto Slab';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 21px;
+    text-align: center;
+
+    color: #000000;
+
+
+}
+
+.your-opinion{
+
+    position: absolute;
+    width: 717px;
+    height: 358px;
+    margin-left: 1125px;
+    margin-top: 150px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.your-opinion textarea{
+    display: flex;
+    align-items: center;
+    width: 500px;
+    height: 180px;
+    resize: none;
+    padding: 10px;
+
+    background: #FFFFFF;
+    border: 2px solid #000000;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+
+    font-family: 'Roboto Slab';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 26px;
+    text-align: center;
+
+    color: #000000;
+
+}
+
+.your-opinion div{
+    margin-right: -400px;
+    margin-top: -30px;
+    font-family: 'Roboto Slab';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 21px;
+    text-align: center;
+    color: #000000;
+}
+
+.your-opinion text{
+    margin-left: -400px;
+    margin-top: -23px;
+    font-family: 'Roboto Slab';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 21px;
+    text-align: center;
+    color: #000000;
+}
+
+.your-opinion button{
+    margin-top: 40px;
+    width: 530px;
+    height: 71px;
+
+    background: #052435;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+
+
+    font-family: 'Roboto Slab';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 26px;
+    text-align: center;
+
+    color: #FFFFFF;
+
+}
+
+.other-opinion{
+    position: absolute;
+    padding-top: 30px;
+
+    width: 1900px;
+    height: 1248px;
+    top: 1800px;
+
+}
+
+.background-heading{
+
+    position: absolute;
+    width: 1901px;
+    height: 247px;
+
+    background: #F0F0F0;
+    filter: blur(5px);
+
+}
+
+.heading-section{
+
+    position: absolute;
+    width: 1377px;
+    height: 182px;
+    margin-left: 270px;
+    margin-top: 30px;
+    
+
+    font-family: 'Roboto Slab';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 64px;
+    line-height: 84px;
+    text-align: center;
+
+    color: #000000;
+
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+}
+
+.heading-section p{
+    margin-top: -1px;
+}
+
+.other-opinion-section {
+    position: absolute;
+    width: 870px;
+    height: '100vh';
+    padding: 10px;
+    margin-top: 270px;
+    margin-left: 370px;
+
+}
+
+
+.how-many-opinion{
+    font-family: 'Roboto Slab';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    text-align: center;
+    margin-left: -270px;
+
+    color: #000000;
+
+}
+
+.opinion-section li{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-top: 10px;
+    margin-bottom: 10px;
+}
+
+.other-user-profile{
+    /* margin-left: 820px;
+    margin-top: 150px; */
+    width: 252px;
+    height: 280px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.other-user-profile img{
+    width: 190px;
+    height: 190px;
+    border-radius: 50%;
+
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+
+.other-user-profile text{
+    margin-top: 20px;
+    width: 190px;
+    height: 39px;
+
+    font-family: 'Roboto Slab';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 21px;
+    text-align: center;
+
+    color: #000000;
+}
+
+.opinion{
+    width: 500px;
+    height: 180px;
+    margin-top: -60px;
+
+    background: #FFFFFF;
+    border: 2px solid #000000;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+
+}
+
+.book2-image{
+    position: absolute;
+    width: 545px;
+    height: 818px;
+    margin-left: 1300px;
+    margin-top: 350px;
+
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+
+}
+
+.footer-book-container{
+
+    position: absolute;
+    width: 1903px;
+    height: 30px;
+    bottom: -2150px;
+    padding-top: 20px;
+
+    background: #F0F0F0;
+
+    font-family: 'Roboto Slab';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 25px;
+    line-height: 15px;
+    text-align: center;
+
+    color: #000000;
+}

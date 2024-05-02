@@ -7,7 +7,7 @@ import logo from '../../assets/Image/logo.png';
 import avatar from '../../assets/Avatar/avatar1.jpg'
 
 
-export default function Login() {
+export default function MyAccount() {
     const navigate = useNavigate();
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -17,8 +17,12 @@ export default function Login() {
 
     }
 
-    async function handleRegister(){
-        navigate("/register");
+    async function handleCategories(){
+        navigate("/categories");
+    }
+
+    async function handleFavourite(){
+        navigate("/favourite");
 
     }
 
@@ -39,9 +43,9 @@ export default function Login() {
             </div>
             <nav>
                 <ul className="menu-bar">
-                    <li className="menu-section"><AiOutlineBars className="menu-icon"/> KATEGORIE</li>
+                    <li className="menu-section" onClick={handleCategories}><AiOutlineBars className="menu-icon"/> KATEGORIE</li>
                     <li className="myaccount-section" ><AiOutlineUser className="menu-icon"/> MOJE KONTO</li>
-                    <li className="menu-section"><AiOutlineHeart className="menu-icon"/> ULUBIONE</li>
+                    <li className="menu-section" onClick={handleFavourite}><AiOutlineHeart className="menu-icon"/> ULUBIONE</li>
                     <li className="menu-section" onClick={handleLogin}><LuLogOut className="menu-icon"/> WYLOGUJ SIE</li>
                 </ul>
             </nav>

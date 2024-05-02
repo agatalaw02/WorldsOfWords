@@ -13,13 +13,23 @@ export default function Help() {
 
     }
 
-    async function myaccount(){
+    async function handleCategories(){
+        navigate("/categories");
+    }
+
+    async function handleMyAccount(){
         navigate("/myaccount");
     }
 
-    async function login(){
+    async function handleFavourite(){
+        navigate("/favourite");
+
+    }
+
+    async function handleLogin(){
         navigate("/login");
     }
+
 
     return(
         <div className="help-container">
@@ -29,10 +39,10 @@ export default function Help() {
             </div>
             <nav>
                 <ul className="menu-bar">
-                    <li className="menu-section"><AiOutlineBars className="menu-icon"/> KATEGORIE</li>
-                    <li className="menu-section" onClick={myaccount}><AiOutlineUser className="menu-icon"/> MOJE KONTO</li>
-                    <li className="menu-section"><AiOutlineHeart className="menu-icon"/> ULUBIONE</li>
-                    <li className="menu-section" onClick={login}><LuLogOut className="menu-icon"/> WYLOGUJ SIE</li>
+                    <li className="menu-section" onClick={handleCategories}><AiOutlineBars className="menu-icon"/> KATEGORIE</li>
+                    <li className="menu-section" onClick={handleMyAccount}><AiOutlineUser className="menu-icon"/> MOJE KONTO</li>
+                    <li className="menu-section" onClick={handleFavourite}><AiOutlineHeart className="menu-icon"/> ULUBIONE</li>
+                    <li className="menu-section" onClick={handleLogin}><LuLogOut className="menu-icon"/> WYLOGUJ SIE</li>
                 </ul>
             </nav>
             <LuHelpCircle className="help-icon-inHelp"/>
