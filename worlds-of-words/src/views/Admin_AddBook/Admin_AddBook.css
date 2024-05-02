@@ -1,0 +1,310 @@
+.adminaddbook-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 4%;
+}
+
+.background-adminaddbook{
+    position: absolute;
+    width: 1900px;
+    height: 214px;
+    margin-top: 149px;
+    margin-left: -17px;
+
+    font-family: 'Roboto Slab';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 128px;
+    line-height: 169px;
+    text-align: center;
+
+    color: #DADADA;
+
+    filter: blur(2px);
+
+}
+
+.logo2-section img{
+
+    position: absolute;
+    width: 285px;
+    height: 285px;
+    left: -10px;
+    top: -30px;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+
+}
+
+.menu2-bar{
+    box-sizing: border-box;
+
+    position: absolute;
+    justify-content: center;
+    margin: 0 15px;
+    padding-left: 0px;
+
+    display: flex;
+    width: 800px;
+    height: 55px;
+    left: 561px;
+    top: 20px;
+    /* padding-top: 10px; */
+
+
+    background: #FFFFFF;
+    border: 2px solid #000000;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+
+}
+
+.menu2-section {
+    display: inline;
+    padding-top: 10px;
+
+    font-family: 'Roboto Slab';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 26px;
+    text-align: center;
+
+    color: #000000;
+}
+
+.addbook-section {
+    display: inline;
+    padding-top: 10px;
+
+    font-family: 'Roboto Slab';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 26px;
+    text-align: center;
+
+    color: #5396A4;
+}
+
+.menu3-section {
+    display: inline;
+
+    padding-top: 10px;
+    margin-right: 150px;
+    margin-left: 150px;
+
+
+
+    font-family: 'Roboto Slab';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 26px;
+    text-align: center;
+
+    color: #000000;
+
+
+}
+
+.menu2-icon{
+    position: relative;
+    padding-right: 10px;
+    width: 20px;
+    height: 20px;
+    top: 5px;
+}
+
+.adminaddbook-background{
+
+    position: absolute;
+    width: 1920px;
+    height: 684px;
+    left: 0px;
+    top: 230px;
+
+    background: #F0F0F0;
+    filter: blur(5px);
+
+}
+
+.adminaddbook2-container{
+
+    position: absolute;
+    width: 1458px;
+    height: 569px;
+    top: 290px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+
+}
+
+.adminaddbook-addimage{
+
+    width: 387px;
+    height: 549px;
+
+    display: flex;
+    justify-content: center;
+
+}
+
+.adminaddbook-addimage div{
+
+    width: 340px;
+    height: 461px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    background: #FFFFFF;
+    border: 2px solid #000000;
+    border-radius: 20px;
+
+}
+
+.adminaddbook-addimage div text{
+
+    width: 241px;
+    height: 51px;
+    margin-top: 50px;
+
+    font-family: 'Roboto Slab';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 26px;
+    text-align: center;
+
+    color: #000000;
+}
+
+.adminaddbook-icon-addimage{
+
+    width: 163px;
+    height: 167px;
+
+
+}
+
+.admiaddbook-informationadd{
+
+    width: 1041px;
+    height: 549px;
+
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+}
+
+.adminaddbook-addtitle{
+    width: 995px;
+    height: 81px;
+    margin-bottom: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+
+    background: #FFFFFF;
+    border: 2px solid #000000;
+    border-radius: 20px;
+
+    font-family: 'Roboto Slab';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 48px;
+    line-height: 63px;
+
+    color: #000000;
+
+}
+
+.adminaddbook-addauthor{
+    width: 995px;
+    height: 35px;
+    margin-bottom: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+
+    background: #FFFFFF;
+    border: 2px solid #000000;
+    border-radius: 20px;
+
+    font-family: 'Roboto Slab';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 26px;
+
+    color: #000000;
+
+}
+
+.adminaddbook-addcategory{
+
+    width: 995px;
+    padding-left: 10px;
+    padding-right: 10px;
+    height: 29px;
+    margin-bottom: 20px;
+
+    background: #FFFFFF;
+    border: 2px solid #000000;
+    border-radius: 20px;
+
+    font-family: 'Roboto Slab';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 21px;
+
+    color: #000000;
+
+}
+
+.adminaddbook-adddescription{
+
+    width: 995px;
+    padding-left: 10px;
+    padding-right: 10px;
+    height: 170px;
+    margin-bottom: 50px;
+
+    background: #FFFFFF;
+    border: 2px solid #000000;
+    border-radius: 20px;
+
+    font-family: 'Roboto Slab';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 21px;
+
+    color: #000000;
+}
+
+.admiaddbook-informationadd button{
+
+    width: 1015px;
+    height: 71px;
+
+    background: #052435;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+
+    font-family: 'Roboto Slab';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 26px;
+    text-align: center;
+
+    color: #FFFFFF;
+
+
+}
+
