@@ -32,6 +32,9 @@ export default function MainPage() {
         navigate("/help");
     }
 
+    async function handleBook(){
+        navigate("/book");
+    }
 
 
     return(
@@ -100,7 +103,7 @@ export default function MainPage() {
                                 <text className="title-book-last">
                                 HOBBIT, CZYLI TAM I SPOWROTEM3
                                 </text>
-                                <button className="button-book-last">
+                                <button className="button-book-last" onClick={handleBook}>
                                 ZOBACZ
                                 </button> 
                             
@@ -108,9 +111,6 @@ export default function MainPage() {
                     ))}
                 </ul>
             </div>
-            <footer className="footer1-container">
-                Wszelkie prawa zastrzeżone - Worlds of Words 2024
-            </footer>
 
         </div>
         

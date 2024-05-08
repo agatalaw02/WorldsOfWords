@@ -75,10 +75,6 @@ export default function MyAccount() {
             </div>
 
         </div>
-
-        <footer className="footer-container">
-                Wszelkie prawa zastrzeżone - Worlds of Words 2024
-            </footer>
         
     </div>
 

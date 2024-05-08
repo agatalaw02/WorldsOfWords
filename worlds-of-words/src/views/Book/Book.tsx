@@ -165,9 +165,6 @@ export default function Book() {
             <img className='book2-image' src={book2} />
         </div>
         
-        <footer className="footer-book-container">
-                Wszelkie prawa zastrzeżone - Worlds of Words 2024
-            </footer>
     </div>
 
     );

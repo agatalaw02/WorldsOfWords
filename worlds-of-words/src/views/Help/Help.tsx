@@ -143,9 +143,6 @@ export default function Help() {
 
                 </ul>
             </div>
-            <footer className="footer4-container">
-                Wszelkie prawa zastrzeżone - Worlds of Words 2024
-            </footer>
 
         </div>
 

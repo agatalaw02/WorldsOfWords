@@ -169,22 +169,3 @@
     margin-bottom: 10px;
 }
 
-.footer-container{
-
-    position: absolute;
-    width: 1920px;
-    height: 30px;
-    bottom: 0px;
-    padding-top: 20px;
-
-    background: #F0F0F0;
-
-    font-family: 'Roboto Slab';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 25px;
-    line-height: 15px;
-    text-align: center;
-
-    color: #000000;
-}
