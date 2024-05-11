@@ -1,18 +1,173 @@
-import { SetStateAction, useState } from "react";
+import { SetStateAction, useEffect, useRef, useState } from "react";
 import './Admin_Book.css';
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { AiOutlinePlusSquare, AiOutlineUser,  AiOutlineSearch } from "react-icons/ai";
 import { LuLogOut} from "react-icons/lu";
 import logo from '../../assets/Image/logo.png';
-import thebest from '../../assets/Book/hobbit-czyli-tam-i-z-powrotem-b-iext140202568.webp'
 import ReactStars from 'react-rating-star-with-type'
 import avatar from '../../assets/Avatar/avatar1.jpg'
+import { firestore } from "../Firebase/firebase";
+import { QueryDocumentSnapshot, Timestamp, collection, deleteDoc, doc, getDoc, getDocs, query, updateDoc, where } from "firebase/firestore";
+
+interface Review {
+    id: string;
+    userId: string;
+    userName: string;
+    bookTitle: string;
+    text: string;
+    createdAt: Timestamp;
+    isDeleted: boolean
+}
+
+
+interface Book {
+    title: string;
+    author: string;
+    category: string;
+    description: string;
+    coverImage: string;
+    deleted: boolean;
+}
 
 export default function Admin_Book() {
     const navigate = useNavigate();
-    const [star, setStar] = useState(5);
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
+    const topOfPanelRef = useRef<HTMLDivElement>(null);
+    const [book, setBook] = useState({
+        title: '',
+        author: '',
+        category: '',
+        description: '',
+        coverImage: '',
+        deleted: false
+      });
+
+    const location = useLocation();
+    const searchParams = new URLSearchParams(location.search);
+    const title = searchParams.get('title');
+
+    const [reviews, setReviews] = useState<Review[]>([]);
+
+    useEffect(() => {
+        const fetchReviews = async () => {
+            try {
+                const q = query(collection(firestore, 'reviews'), where('bookTitle', '==', title));
+                const querySnapshot = await getDocs(q);
+                const fetchedReviews: Review[] = [];
+                querySnapshot.forEach(doc => {
+                    const reviewData = doc.data() as Review;
+                    fetchedReviews.push(reviewData);
+                });
+                // Sortowanie recenzji od najnowszej do najstarszej
+                fetchedReviews.sort((a, b) => b.createdAt.seconds - a.createdAt.seconds);
+                
+                setReviews(fetchedReviews);
+            } catch (error) {
+                console.error('Błąd podczas pobierania recenzji:', error);
+            }
+        };
+    
+        fetchReviews();
+    }, [title]);
+    
+
+      useEffect(() => {
+        const fetchBookDetails = async () => {
+            try {
+                const q = query(collection(firestore, 'books'), where('title', '==', title));
+                const querySnapshot = await getDocs(q);
+                if (!querySnapshot.empty) {
+                    const data = querySnapshot.docs[0].data() as Book;
+                    setBook(data);
+                }
+            } catch (error) {
+                console.error('Błąd podczas pobierania szczegółów książki:', error);
+            }
+        };
+
+        fetchBookDetails();
+    }, [title]);
+
+
+    useEffect(() => {
+        // Przewiń stronę do góry panelu
+        const topOfPanel = topOfPanelRef.current;
+        if (topOfPanel) {
+            topOfPanel.scrollIntoView({ behavior: 'smooth' });
+        }
+    }, []);
+
+    async function handleDeleteBook() {
+        if (!book.title) {
+            console.error('Nie można usunąć książki: brak tytułu książki.');
+            return;
+        }
+    
+        // Wyświetlamy okno dialogowe z pytaniem
+        const confirmDelete = window.confirm('Czy na pewno chcesz usunąć książkę?');
+    
+        // Jeśli użytkownik potwierdzi usunięcie
+        if (confirmDelete) {
+            try {
+                // Sprawdź, czy istnieje dokument z podanym tytułem
+                const bookQuery = query(collection(firestore, 'books'), where('title', '==', book.title));
+                const querySnapshot = await getDocs(bookQuery);
+                if (!querySnapshot.empty) { // Jeśli dokument został znaleziony
+                    // Pobierz identyfikator dokumentu
+                    const docId = querySnapshot.docs[0].id;
+                    // Zaktualizuj pole 'deleted' na true
+                    const bookRef = doc(firestore, 'books', docId);
+                    await updateDoc(bookRef, { deleted: true });
+                    console.log('Książka została oznaczona jako usunięta.');
+                    // Przekierowujemy użytkownika z powrotem do strony głównej admina
+                    navigate("/admin_mainpage");
+                } else {
+                    console.error('Nie znaleziono dokumentu do usunięcia.');
+                }
+            } catch (error) {
+                console.error('Błąd podczas usuwania książki:', error);
+            }
+        }
+    }
+
+
+
+    async function handleDeleteReview(index: number) {
+        try {
+            // Pobierz kopię tablicy recenzji
+            const updatedReviews = [...reviews];
+            // Sprawdź, czy indeks jest w zakresie tablicy
+            if (index >= 0 && index < updatedReviews.length) {
+                // Pytaj administratora o potwierdzenie usuwania recenzji
+                const confirmDelete = window.confirm('Czy na pewno chcesz usunąć recenzję?');
+                // Jeśli potwierdzi usunięcie
+                if (confirmDelete) {
+                    // Sprawdź, czy dokument recenzji istnieje w bazie danych
+                    const reviewRef = doc(firestore, 'reviews', updatedReviews[index].id);
+                    const reviewDoc = await getDoc(reviewRef);
+                    if (reviewDoc.exists()) {
+                        // Ustaw pole 'isDeleted' na true dla recenzji o danym indeksie
+                        updatedReviews[index].isDeleted = true;
+                        // Zaktualizuj stan aplikacji, aby odzwierciedlić usunięcie recenzji
+                        setReviews(updatedReviews);
+                        console.log('Recenzja została oznaczona jako usunięta w lokalnym stanie aplikacji.');
+    
+                        // Aktualizuj pole 'isDeleted' na true w bazie danych
+                        await updateDoc(reviewRef, { isDeleted: true });
+                        console.log('Recenzja została oznaczona jako usunięta w bazie danych.');
+                    } else {
+                        console.error('Dokument recenzji nie istnieje w bazie danych.');
+                    }
+                }
+            } else {
+                console.error('Nieprawidłowy indeks recenzji.');
+            }
+        } catch (error) {
+            console.error('Błąd podczas oznaczania recenzji jako usuniętej:', error);
+        }
+    }
+    
+
+    
 
     async function handleLogo(){
         navigate("/admin_mainpage");
@@ -35,6 +190,10 @@ export default function Admin_Book() {
 
 
     return(
+        <>
+        <div ref={topOfPanelRef}>
+                {/* Górny panel */}
+            </div>
         <div className="adminbook-container">
         <div className="background-adminbook">ADMIN</div>
         <header>
@@ -54,21 +213,18 @@ export default function Admin_Book() {
         
 
         <div className="adminbook2-container">
-            <input className= "search-box-adminbook" type="text" placeholder="Wyszukaj..." />
-            <AiOutlineSearch className="search-icon-adminbook"/>
+            {/* <input className= "search-box-adminbook" type="text" placeholder="Wyszukaj..." />
+            <AiOutlineSearch className="search-icon-adminbook"/> */}
 
             
             <div className="description-adminbook">
-                <img src={thebest} />
+                <img src={book.coverImage} />
                 <div>
-                    <text className="title-adminbook">HOBBIT, CZYLI TAM I SPOWROTEM</text>
-                    <text className="author-adminbook">Autor Autor </text>
-                    <text className="category-adminbook">Kategoria: Fantasy</text>
-                    <text className="description2-adminbook">“Hobbit, czyli tam i z powrotem” to opowieść o Bilbo Bagginsie, hobbitcie, 
-                    który wyrusza w nieoczekiwaną przygodę. Towarzyszą mu krasnoludy, czarodziej Gandalf i smok Smaug. 
-                    W trakcie podróży Bilbo odkrywa swoją odwagę i przełamuje własne ograniczenia. To historia o przygodzie, przyjaźni i nieznanych światach.</text>
-                    <button className="admin-delete-button">USUŃ KSIĄŻKĘ</button>
-                    <button className="admin-edit-button">EDYTUJ KSIĄŻKĘ</button>
+                    <text className="title-adminbook">{book ? book.title : ''}</text>
+                    <text className="author-adminbook">{book ? book.author : ''} </text>
+                    <text className="category-adminbook">Kategoria: {book ? book.category : ''}</text>
+                    <text className="description2-adminbook">{book ? book.description : ''}</text>
+                    <button className="admin-delete-button" onClick={handleDeleteBook}>USUŃ KSIĄŻKĘ</button>
                 </div>
             </div>
             <text className="rating-star">
@@ -79,44 +235,24 @@ export default function Admin_Book() {
         <div className="admin-users-opinion">
             <text>RECENZJE UŻYTKOWNIKÓW</text>
             <div className="admin-other-opinion-section">
-                <div className="admin-how-many-opinion">Recenzje (3)</div>
+                <div className="admin-how-many-opinion">Recenzje ({reviews.filter(review => !review.isDeleted).length})</div>
 
                 <div className="admin-opinion-section">
-                    <li>
-                        <div className="admin-other-user-profile">
-                            <img src={avatar} />
-                            <text>Nazwa użytkownika</text>
-                        </div> 
-                        <div className="admin2-opinion-section">
-                            <div className="admin-opinion"></div>
-                            <button >USUŃ RECENZJE</button>
-                        </div>
-                        
-                    </li>
-
-                    <li>
-                        <div className="admin-other-user-profile">
-                            <img src={avatar} />
-                            <text>Nazwa użytkownika</text>
-                        </div> 
-                        <div className="admin2-opinion-section">
-                            <div className="admin-opinion"></div>
-                            <button >USUŃ RECENZJE</button>
-                        </div>
-                        
-                    </li>
-
-                    <li>
-                        <div className="admin-other-user-profile">
-                            <img src={avatar} />
-                            <text>Nazwa użytkownika</text>
-                        </div> 
-                        <div className="admin2-opinion-section">
-                            <div className="admin-opinion"></div>
-                            <button >USUŃ RECENZJE</button>
-                        </div>
-                        
-                    </li>
+                {reviews.map((review, index) => (
+                        // Sprawdzamy, czy recenzja nie została oznaczona jako usunięta
+                        !review.isDeleted && (
+                            <li key={index}>
+                                <div className="admin-other-user-profile">
+                                    <img src={avatar} />
+                                    <text>{review.userName}</text>
+                                </div>
+                                <div className="admin2-opinion-section">
+                                    <div className="admin-opinion">{review.text}</div>
+                                    <button onClick={() => handleDeleteReview(index)}>USUŃ RECENZJE</button>
+                                </div>
+                            </li>
+                        )
+                    ))}
                     
                     
                 </div>
@@ -129,7 +265,7 @@ export default function Admin_Book() {
 
         
     </div>
-
+    </>
     );
 }
 

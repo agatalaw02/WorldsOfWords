@@ -167,13 +167,15 @@
 }
 
 .adminusers2-container table{
-    margin-top: 25px;
+    position: absolute;
+    margin-top: 80px;
     width: 1260px;
     height: 670px;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    overflow-y: auto;
 }
 
 .adminusers2-container table li{

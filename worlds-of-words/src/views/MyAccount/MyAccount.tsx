@@ -1,16 +1,51 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import './MyAccount.css';
 import { useNavigate } from "react-router-dom";
 import { AiOutlineBars, AiOutlineUser, AiOutlineHeart } from "react-icons/ai";
 import { LuLogOut, LuHelpCircle } from "react-icons/lu";
 import logo from '../../assets/Image/logo.png';
-import avatar from '../../assets/Avatar/avatar1.jpg'
-
+import { auth, firestore } from "../Firebase/firebase"; // Importujemy obiekty auth i firestore
+import defaultAvatar from '../../assets/Avatar/avatar1.jpg';
+import { collection, getDocs, getFirestore, deleteDoc, doc, query, where } from "firebase/firestore";
 
 export default function MyAccount() {
     const navigate = useNavigate();
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
+    const [userData, setUserData] = useState({
+        username: "",
+        email: "",
+        avatar: defaultAvatar
+    }); 
+
+    useEffect(() => {
+        const fetchUserData = async () => {
+            try {
+                const user = auth.currentUser;
+                if (user) {
+                    const userEmailAuth = user.email;
+                    const firestore = getFirestore();
+                    const usersCollectionRef = collection(firestore, 'users');
+                    const userSnapshot = await getDocs(usersCollectionRef);
+                    userSnapshot.docs.forEach(async (doc: { data: () => any; }) => {
+                        const userDataFromFirestore = doc.data();
+                        if (userDataFromFirestore.email === userEmailAuth) {
+                            setUserData({
+                                username: userDataFromFirestore.username || "",
+                                email: userDataFromFirestore.email || "",
+                                avatar: userDataFromFirestore.avatar || defaultAvatar
+                            });
+                        }
+                    });
+                } else {
+                    console.error("Użytkownik niezalogowany.");
+                }
+            } catch (error) {
+                console.error("Błąd podczas pobierania danych użytkownika:", error);
+            }
+        };
+        
+        fetchUserData();
+    }, []);
+    
 
     async function handleLogo(){
         navigate("/mainpage");
@@ -34,6 +69,9 @@ export default function MyAccount() {
     async function handleHelp(){
         navigate("/help");
     }
+    
+    
+
 
     return(
         <div className="myaccount-container">
@@ -59,18 +97,16 @@ export default function MyAccount() {
 
             <div className="daneMyaccount">
                 <div className="avatar-myaccount">
-                    <img src={avatar} /> 
+                    <img src={userData.avatar} /> 
                 </div>
                 
                 <form>
                     <div className="daneClient-section">
                         <text className="text-section">NAZWA UŻYTKOWNIKA </text>
-                        <input type="text" placeholder="" readOnly/>
+                        <input type="text" value={userData.username} readOnly disabled/>
                         <text className="text-section">E-MAIL </text>
-                        <input type="email" placeholder="" readOnly/>
+                        <input type="email" value={userData.email} readOnly disabled/>
                     </div>
-                        <button className="edit-button">EDYTUJ</button>
-                        <button className="delete-button">USUŃ KONTO</button>
                 </form>
             </div>
 

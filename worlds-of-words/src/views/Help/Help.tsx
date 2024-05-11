@@ -115,31 +115,15 @@ export default function Help() {
                         </text>
                     </li>
 
-                    <li>
-                        <h3>Jak edytować swoje dane?</h3>
-                        <text>
-                            <p>1. Pierwsze co należy wykonać to nacisnąć przycisk “Moje konto” na pasku menu u góry strony.</p>
-                            <p>2. Następnie zostaną wyświetlone twoje dane.</p>
-                            <p>3. Pod twoimi danymi znajduje się przycisk “Edytuj”, dzięki niemu możesz edytować swoje dane.</p>
-                        </text>
-                    </li>
 
                     <li>
                         <h3>Jak wyświetlić swój profil?</h3>
                         <text>
                             <p>1. Pierwsze co należy wykonać to nacisnąć przycisk “Moje konto” na pasku menu u góry strony.</p>
-                            <p>2. Następnie zostaną wyświetlone twoje dane, które możesz edytować lub usunąć konto.</p>
+                            <p>2. Następnie zostaną wyświetlone twoje dane.</p>
                         </text>
                     </li>
 
-                    <li>
-                        <h3>Jak usunąć swoje konto?</h3>
-                        <text>
-                            <p>1. Pierwsze co należy wykonać to nacisnąć przycisk “Moje konto” na pasku menu u góry strony.</p>
-                            <p>2. Następnie zostaną wyświetlone twoje dane.</p>
-                            <p>3. Pod twoimi danymi znajduje się przycisk “Usuń konto”, dzięki niemu możesz usunąć swoje konto.</p>
-                        </text>
-                    </li>
 
                 </ul>
             </div>

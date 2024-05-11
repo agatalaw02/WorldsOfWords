@@ -92,7 +92,7 @@
 .description-book{
     display: flex;
     align-items: center;
-    margin-top: 150px;
+    margin-top: 200px;
 }
 
 .description-book img{
@@ -180,10 +180,12 @@
 }
 
 .add-to-favourite-button{
+    position: absolute;
 
     width: 775px;
     height: 71px;
     margin-left: 50px;
+    margin-top: 21em;
 
     background: #052435;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -502,12 +504,26 @@
     width: 500px;
     height: 180px;
     margin-top: -60px;
+    resize: none;
+    padding: 10px;
 
     background: #FFFFFF;
     border: 2px solid #000000;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 20px;
 
+}
+
+.review-date{
+    margin-left: -500px;
+    margin-top: 5.5em;
+    font-family: 'Roboto Slab';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 21px;
+    text-align: center;
+    color: #000000;
 }
 
 .book2-image{
