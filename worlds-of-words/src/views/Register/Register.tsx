@@ -48,6 +48,7 @@ export default function Register() {
     return avatarImages[randomIndex];
   };
 
+
   const validate = () => {
     let tempErrors: FormState = { ...initialFormState };
 
@@ -145,7 +146,7 @@ export default function Register() {
             Rejestracja przebiegła pomyślnie. Możesz teraz przejść do panelu logowania.
           </div>
         )}
-        <form onSubmit={handleSubmit}>
+        {/* <form onSubmit={handleSubmit}>
           <div className="dane-register-section">
             <text className="text-section">E-MAIL </text>
             <input type="email" name="email" value={formState.email} onChange={handleInputChange} placeholder="" />
@@ -158,6 +159,28 @@ export default function Register() {
             <div style={{ color: 'red' , marginBottom: '10px', marginLeft: '10px', fontFamily: 'Roboto Slab'  }}>{errors.password}</div>
             <text className="text-section">POWTÓRZ HASŁO </text>
             <input type="password" name="confirmPassword" value={formState.confirmPassword} onChange={handleInputChange} placeholder="" />
+            <div style={{ color: 'red' , marginLeft: '10px', fontFamily: 'Roboto Slab'   }}>{errors.confirmPassword}</div>
+          </div>
+          <button type="submit">ZAREJESTRUJ</button>
+        </form> */}
+
+        <form onSubmit={handleSubmit}>
+          <div className="dane-register-section">
+            <label className="text-section">E-MAIL 
+              <input type="email" name="email" value={formState.email} onChange={handleInputChange} placeholder="" />
+            </label>
+            <div style={{ color: 'red' , marginBottom: '10px', marginLeft: '10px', fontFamily: 'Roboto Slab' }}>{errors.email}</div>
+            <label className="text-section">NAZWA UŻYTKOWNIKA 
+              <input type="text" name="username" value={formState.username} onChange={handleInputChange} placeholder="" />
+            </label>
+            <div style={{ color: 'red' , marginBottom: '10px', marginLeft: '10px', fontFamily: 'Roboto Slab'   }}>{errors.username}</div>
+            <label className="text-section">HASŁO 
+              <input type="password" name="password" value={formState.password} onChange={handleInputChange} placeholder="" />
+            </label>
+            <div style={{ color: 'red' , marginBottom: '10px', marginLeft: '10px', fontFamily: 'Roboto Slab'  }}>{errors.password}</div>
+            <label className="text-section">POWTÓRZ HASŁO 
+              <input type="password" name="confirmPassword" value={formState.confirmPassword} onChange={handleInputChange} placeholder="" />
+            </label>
             <div style={{ color: 'red' , marginLeft: '10px', fontFamily: 'Roboto Slab'   }}>{errors.confirmPassword}</div>
           </div>
           <button type="submit">ZAREJESTRUJ</button>

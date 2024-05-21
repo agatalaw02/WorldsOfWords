@@ -17,7 +17,19 @@ const firebaseConfig = {
 
 // Initialize Firebase
 export const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
+
+let analytics;
+
+try {
+  analytics = getAnalytics(app);
+} catch (error: any) {
+  if (error instanceof Error) {
+    console.warn("Error initializing Firebase Analytics:", error.message);
+  } else {
+    console.warn("Unknown error occurred during Firebase Analytics initialization");
+  }
+}
+
 export const firestore = getFirestore(app); //moze bedzie trzeba napisac przed const export 
 export const auth = getAuth(app);
 export const storage = getStorage(app);

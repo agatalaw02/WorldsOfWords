@@ -6,7 +6,9 @@ import { LuLogOut, LuHelpCircle } from "react-icons/lu";
 import logo from '../../assets/Image/logo.png';
 import book2 from '../../assets/Image/ksiazki2.png'
 import ReactStars from 'react-rating-star-with-type'
-import avatar from '../../assets/Avatar/avatar1.jpg'
+import avatar1 from '../../assets/Avatar/avatar1.jpg';
+import avatar2 from '../../assets/Avatar/avatar2.jpg';
+import avatar3 from '../../assets/Avatar/avatar3.jpg';
 
 import { auth, firestore } from "../Firebase/firebase";
 import { collection, getDocs, query, where, addDoc, Timestamp, deleteDoc, doc, getDoc, updateDoc } from "firebase/firestore";
@@ -56,6 +58,19 @@ export default function Book() {
         username: "",
         email: ""
     });
+
+    const avatarImages = [
+        avatar1,
+        avatar2,
+        avatar3,
+      ];
+    
+      const getRandomAvatar = () => {
+        const randomIndex = Math.floor(Math.random() * avatarImages.length);
+        return avatarImages[randomIndex];
+      };
+
+      const avatar = getRandomAvatar();
 
     const [reviews, setReviews] = useState<Review[]>([]);
     const [isFavorite, setIsFavorite] = useState<boolean>(false);
@@ -188,6 +203,28 @@ export default function Book() {
         fetchUserData();
     }, [currentUser]);
 
+    // useEffect(() => {
+    //     const fetchReviews = async () => {
+    //         try {
+    //             const q = query(collection(firestore, 'reviews'), where('bookTitle', '==', title));
+    //             const querySnapshot = await getDocs(q);
+    //             const fetchedReviews: Review[] = [];
+    //             querySnapshot.forEach(doc => {
+    //                 const reviewData = doc.data() as Review;
+    //                 fetchedReviews.push(reviewData);
+    //             });
+    //             // Sortowanie recenzji od najnowszej do najstarszej
+    //             fetchedReviews.sort((a, b) => b.createdAt.seconds - a.createdAt.seconds);
+                
+    //             setReviews(fetchedReviews);
+    //         } catch (error) {
+    //             console.error('Błąd podczas pobierania recenzji:', error);
+    //         }
+    //     };
+
+    //     fetchReviews();
+    // }, [title]);
+
     useEffect(() => {
         const fetchReviews = async () => {
             try {
@@ -198,15 +235,35 @@ export default function Book() {
                     const reviewData = doc.data() as Review;
                     fetchedReviews.push(reviewData);
                 });
+    
+                // Sprawdzenie, czy użytkownik jest zablokowany i filtracja recenzji
+                const filteredReviews = await Promise.all(
+                    fetchedReviews.map(async review => {
+                        const userRef = doc(firestore, 'users', review.userId);
+                        const userDoc = await getDoc(userRef);
+                        if (userDoc.exists()) {
+                            const userData = userDoc.data();
+                            if (userData && userData.blocked) {
+                                // Jeśli użytkownik jest zablokowany, zwróć null
+                                return null;
+                            }
+                        }
+                        // Jeśli użytkownik nie jest zablokowany, zwróć recenzję
+                        return review;
+                    })
+                );
+    
+                // Usunięcie wartości null z tablicy recenzji
+                const filteredAndNotNullReviews = filteredReviews.filter(review => review !== null) as Review[];
+    
                 // Sortowanie recenzji od najnowszej do najstarszej
-                fetchedReviews.sort((a, b) => b.createdAt.seconds - a.createdAt.seconds);
-                
-                setReviews(fetchedReviews);
+                const sortedReviews = filteredAndNotNullReviews.sort((a, b) => b.createdAt.seconds - a.createdAt.seconds);
+                setReviews(sortedReviews);
             } catch (error) {
                 console.error('Błąd podczas pobierania recenzji:', error);
             }
         };
-
+    
         fetchReviews();
     }, [title]);
 
@@ -464,7 +521,7 @@ export default function Book() {
 
             <div className="user-profile">
                 <img src={avatar} />
-                <text>Nazwa użytkownika</text>
+                <text>{userData.username}</text>
             </div>
 
             <div className="your-opinion">

@@ -7,6 +7,9 @@ import logo from '../../assets/Image/logo.png';
 import { auth, firestore } from "../Firebase/firebase"; // Importujemy obiekty auth i firestore
 import defaultAvatar from '../../assets/Avatar/avatar1.jpg';
 import { collection, getDocs, getFirestore, deleteDoc, doc, query, where } from "firebase/firestore";
+import avatar1 from '../../assets/Avatar/avatar1.jpg';
+import avatar2 from '../../assets/Avatar/avatar2.jpg';
+import avatar3 from '../../assets/Avatar/avatar3.jpg';
 
 export default function MyAccount() {
     const navigate = useNavigate();
@@ -15,6 +18,19 @@ export default function MyAccount() {
         email: "",
         avatar: defaultAvatar
     }); 
+
+    const avatarImages = [
+        avatar1,
+        avatar2,
+        avatar3,
+      ];
+    
+      const getRandomAvatar = () => {
+        const randomIndex = Math.floor(Math.random() * avatarImages.length);
+        return avatarImages[randomIndex];
+      };
+
+      const avatar = getRandomAvatar();
 
     useEffect(() => {
         const fetchUserData = async () => {
@@ -97,7 +113,7 @@ export default function MyAccount() {
 
             <div className="daneMyaccount">
                 <div className="avatar-myaccount">
-                    <img src={userData.avatar} /> 
+                    <img src={avatar} /> 
                 </div>
                 
                 <form>

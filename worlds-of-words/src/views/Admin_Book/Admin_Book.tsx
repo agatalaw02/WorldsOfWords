@@ -5,7 +5,9 @@ import { AiOutlinePlusSquare, AiOutlineUser,  AiOutlineSearch } from "react-icon
 import { LuLogOut} from "react-icons/lu";
 import logo from '../../assets/Image/logo.png';
 import ReactStars from 'react-rating-star-with-type'
-import avatar from '../../assets/Avatar/avatar1.jpg'
+import avatar1 from '../../assets/Avatar/avatar1.jpg';
+import avatar2 from '../../assets/Avatar/avatar2.jpg';
+import avatar3 from '../../assets/Avatar/avatar3.jpg';
 import { firestore } from "../Firebase/firebase";
 import { QueryDocumentSnapshot, Timestamp, collection, deleteDoc, doc, getDoc, getDocs, query, updateDoc, where } from "firebase/firestore";
 
@@ -47,6 +49,41 @@ export default function Admin_Book() {
 
     const [reviews, setReviews] = useState<Review[]>([]);
 
+    const avatarImages = [
+        avatar1,
+        avatar2,
+        avatar3,
+      ];
+    
+      const getRandomAvatar = () => {
+        const randomIndex = Math.floor(Math.random() * avatarImages.length);
+        return avatarImages[randomIndex];
+      };
+
+      const avatar = getRandomAvatar();
+
+    // useEffect(() => {
+    //     const fetchReviews = async () => {
+    //         try {
+    //             const q = query(collection(firestore, 'reviews'), where('bookTitle', '==', title));
+    //             const querySnapshot = await getDocs(q);
+    //             const fetchedReviews: Review[] = [];
+    //             querySnapshot.forEach(doc => {
+    //                 const reviewData = doc.data() as Review;
+    //                 fetchedReviews.push(reviewData);
+    //             });
+    //             // Sortowanie recenzji od najnowszej do najstarszej
+    //             fetchedReviews.sort((a, b) => b.createdAt.seconds - a.createdAt.seconds);
+                
+    //             setReviews(fetchedReviews);
+    //         } catch (error) {
+    //             console.error('Błąd podczas pobierania recenzji:', error);
+    //         }
+    //     };
+    
+    //     fetchReviews();
+    // }, [title]);
+
     useEffect(() => {
         const fetchReviews = async () => {
             try {
@@ -57,10 +94,30 @@ export default function Admin_Book() {
                     const reviewData = doc.data() as Review;
                     fetchedReviews.push(reviewData);
                 });
+    
+                // Sprawdzenie, czy użytkownik jest zablokowany i filtracja recenzji
+                const filteredReviews = await Promise.all(
+                    fetchedReviews.map(async review => {
+                        const userRef = doc(firestore, 'users', review.userId);
+                        const userDoc = await getDoc(userRef);
+                        if (userDoc.exists()) {
+                            const userData = userDoc.data();
+                            if (userData && userData.blocked) {
+                                // Jeśli użytkownik jest zablokowany, zwróć null
+                                return null;
+                            }
+                        }
+                        // Jeśli użytkownik nie jest zablokowany, zwróć recenzję
+                        return review;
+                    })
+                );
+    
+                // Usunięcie wartości null z tablicy recenzji
+                const filteredAndNotNullReviews = filteredReviews.filter(review => review !== null) as Review[];
+    
                 // Sortowanie recenzji od najnowszej do najstarszej
-                fetchedReviews.sort((a, b) => b.createdAt.seconds - a.createdAt.seconds);
-                
-                setReviews(fetchedReviews);
+                const sortedReviews = filteredAndNotNullReviews.sort((a, b) => b.createdAt.seconds - a.createdAt.seconds);
+                setReviews(sortedReviews);
             } catch (error) {
                 console.error('Błąd podczas pobierania recenzji:', error);
             }
@@ -68,6 +125,8 @@ export default function Admin_Book() {
     
         fetchReviews();
     }, [title]);
+    
+    
     
 
       useEffect(() => {
